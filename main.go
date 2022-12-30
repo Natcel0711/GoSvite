@@ -22,5 +22,7 @@ func mainPage(c *fiber.Ctx) error {
 	return c.Render("robert", nil)
 }
 func aboutPage(c *fiber.Ctx) error {
-	return c.Render("aboutpage", nil)
+	return c.Render("aboutpage", fiber.Map{
+		"hello": "world",
+	})
 }
