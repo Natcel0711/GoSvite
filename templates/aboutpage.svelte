@@ -1,17 +1,17 @@
-<script>
+<script lang="ts">
   const endpoint = "http://localhost:8080/users";
   async function getall(){
-    let response = await fetch(endpoint, {mode:'cors'})
+    let response:Response = await fetch(endpoint, {mode:'cors'})
     data = await response.json()
     console.log(data)
-    let el = document.getElementById("people")
+    let el:HTMLElement = document.getElementById("people")
 
-    data.forEach(element => {
+    data.then(dat => dat.forEach(element => {
       el.textContent += element.username 
-    });
+    }))
   }
   getall()
-  var data
+  var data:Promise<any>
 </script>
 
 <main>
